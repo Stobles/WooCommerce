@@ -1,0 +1,266 @@
+.header{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 80px;
+
+    &__wrapper{
+        background-color: $accent-color;
+        padding: em(30) 0px;
+        @media(min-width: $tablet){
+            padding: em(50) 0px;
+        }
+        font-family: $font-family-500;
+        line-height: em(17);
+        letter-spacing: 0.03em;
+    }
+
+    &__inner{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo{
+        display: block;
+        flex: 0 1 200px;
+        @media (min-width: $tablet) {
+            margin-left: 40px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__actions{
+        display: flex;
+        @include adaptiv-value("column-gap", 35, 10, 1);
+        flex: 0 1 370px;
+        font-size: rem(14);
+        justify-content: center;
+
+        &--paragraph{
+            color: $maincolor;
+            transition: .2s;
+
+            @media (any-hover: hover) {
+                &:hover{
+                    color: $cream-color;
+                }
+            }
+        }
+    }
+
+    &__cart{
+
+        &--block{
+            position: relative;
+            display: flex;
+            align-items: center;
+            font-size: rem(26);
+            column-gap: em(15);
+        }
+        span{
+            position: relative;
+
+            background-color: $cream-color;
+
+            font-weight: 700;
+            font-size: rem(12);
+            text-align: center;
+
+            color: #FFFFFF;
+
+            @media (min-width: $mobile) {
+                line-height: em(17);
+                margin-top: em(8);
+                padding: em(3);
+
+                min-width: 33px;
+
+                &::before{
+                    content: '';
+    
+                    position: absolute;
+                    top: 0;
+                    left: -12.5px;
+    
+                    width: 13px;
+                    height: 15.5px;
+    
+                    clip-path: polygon(0 49%, 100% 100%, 100% 0);
+                    background-color: $cream-color;
+                } 
+            }
+
+            @media(max-width: $mobile){
+                position: absolute;
+                top: 0;
+                right: -5px;
+                border-radius: 50%;
+                background-color: $cream-color;
+                font-size: rem(9);
+                width: 15px;
+                height: 15px; 
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-left: 1px;
+            }
+        }
+    }
+
+    &__burger{
+        @media (min-width: $tablet) {
+            display: none;
+        }
+        position: relative;
+        min-width: 25px;
+        height: 25px;
+        margin-left: 20px;
+        z-index: 100000;
+
+        span{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            width: 25px;
+            height: 2px;
+            background-color: $maincolor;
+
+            &::after{
+                content: '';
+                position: absolute;
+                top: -9px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $maincolor;
+                transition: .3s;
+                transform-origin: left;
+            }
+
+            &::before{
+                content: '';
+                position: absolute;
+                top: 9px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $maincolor;
+                transition: .3s;
+                transform-origin: left;
+            }
+        }
+
+        &.active{
+            span{
+                height: 0;
+                &::after{
+                    transform: rotate(45deg);
+                }
+    
+                &::before{
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
+.nav{
+    flex: 1 1 415px;
+    @media (max-width: $tablet) {
+        position: fixed;
+        top: var(--headerHeight);
+        left: 100%;
+        width: 100%;
+        height: 100vh;
+        background-color: $accent-color;
+        transition: .3s;
+        padding-top: 10px;
+    }
+    &__list{
+        @media (min-width: $tablet) {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(50px,1fr));
+            width: 100%;
+            flex-wrap: wrap;
+            column-gap: 22px;
+            justify-content: space-between;
+            justify-items: center;
+            row-gap: 10px;
+        }
+        
+        padding: 5px 15px!important;
+
+        &--block{
+            position: relative;
+            @media (max-width: $tablet) {
+                margin-bottom: 15px;
+            }
+        }
+
+        &--paragraph{
+            @media (min-width: $tablet) {
+                column-gap: 5px;
+                width: auto;
+                @include adaptiv-value("font-size", 14, 10, 1);
+                font-weight: 400;
+            }
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            transition: .2s;
+
+            &::before{
+                font-size: 9px;
+                transform: rotate(var(--rotate-deg));
+                transition: .3s ease-in-out;
+                @media (min-width: $tablet) {
+                    font-size: 5px;
+                }
+            }
+        }
+
+        &--spoller{
+            @media(min-width: $tablet){
+                position: absolute;
+                transition: .3s ease-in-out;
+                min-width: 130px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            width: 100%;
+            background-color: $cream-color;
+            color: #FFFFFF;
+            overflow: hidden;
+            transition: .3s ease-in-out;
+            transform-origin: top;
+            padding: 0px 10px;
+            pointer-events: none;
+
+            li:not(:last-child){
+                margin-bottom: 7px;
+            }
+        }
+    }
+
+    @media (max-width: $tablet) {
+        &.active{
+            left: 0;
+        }
+    }
+}

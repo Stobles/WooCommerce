@@ -1,0 +1,20 @@
+{
+  "name": "template-stoble",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stobles/TemplateStoble.git"
+  },
+  "author": "Stoble",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stobles/TemplateStoble/issues"
+  },
+  "homepage": "https://github.com/Stobles/TemplateStoble#readme"
+}

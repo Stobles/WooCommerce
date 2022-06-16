@@ -1,0 +1,28 @@
+// Вспомогательные классы//
+
+.ibg{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.ibg img{
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.icon-arrow:before {
+  content: "\e900";
+}
+.icon-arrow__down:before {
+  content: "\e901";
+}
+.icon-cart:before {
+  content: "\e902";
+}
